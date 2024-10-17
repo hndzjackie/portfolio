@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Header from "../../components/Header";
 import Hero from "../../components/Hero";
 import About from "../../components/About";
-import WorkExperience from "../../components/ WorkExperience";
+import WorkExperience from "../../components/WorkExperience";
  
 export const metadata: Metadata = {
   title: 'Jacklyn\'s Portfolio',
@@ -21,7 +21,7 @@ export default function Home() {
       <section id="about" className="snap-center">
         <About />  
       </section>
-      
+
       {/* Experience */}
       <section id="experience" className="snap-center">
         <WorkExperience />

@@ -45,4 +45,4 @@ export default function About({}: Props) {
   );
 }
 
-// This formatt is correct do not change
+// This format is correct do not change
