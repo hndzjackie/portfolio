@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata } from "next"
 import Header from "../../components/Header";
 import Hero from "../../components/Hero";
 import About from "../../components/About";
@@ -15,7 +15,7 @@ export default function Home() {
       <Header />  
 
       <section id="hero" className="snap-start">
-        <Hero />
+        <Hero /> 
       </section>
 
       <section id="about" className="snap-center">

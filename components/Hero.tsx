@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import React from 'react'
-import { Cursor, useTypewriter } from 'react-simple-typewriter'
-import BackgroundCircles from './BackgroundCircles';
-import Link from 'next/link';
+import React from "react"
+import { Cursor, useTypewriter } from "react-simple-typewriter"
+import BackgroundCircles from "./BackgroundCircles";
+import Link from "next/link";
 
 type Props = {}
 
@@ -54,5 +54,3 @@ export default function Hero({}: Props) {
   
   )
 }
-
-//change to tsrfc
