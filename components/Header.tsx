@@ -24,7 +24,6 @@ export default function Header({}: Props) {
         scale: 1, 
     }}
     className="flex flex-row items-center">
-        {/* Social Icons */}
         <SocialIcon 
             url="https://www.linkedin.com/in/jacklyn-hernandez" 
             fgColor="#2251b2" 
@@ -63,7 +62,7 @@ export default function Header({}: Props) {
             fgColor="#2251b2"
             bgColor="transparent"
         />
-        <p className="uppercase hidden md:inline-flex text-sm text-blue-800">
+        <p className="uppercase hidden md:inline-flex text-sm text-[#2251b2]">
             Get in touch
         </p>
     </motion.div>

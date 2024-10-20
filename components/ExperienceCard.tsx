@@ -40,7 +40,7 @@ export default function ExperienceCard({}: Props) {
 
             </div>
             <p className="uppercase py-5 text-[rgb(18,53,104)]">Started work... - Ended...</p>
-            {/* figure out how to make scrollable container; set a height you do scrollable */}
+         
             <ul className="list-disc space-y-4 ml-5 text-lg"> 
                 <li>Summary points Summary points Summary points Summary 
                     pointsSummary points
