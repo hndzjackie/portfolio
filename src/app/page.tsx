@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+import type { Metadata } from "next";
 import Header from "../../components/Header";
 import Hero from "../../components/Hero";
 import About from "../../components/About";
@@ -38,7 +38,6 @@ export default function Home() {
       <section id="projects" className="snap-start">
         <Projects />
       </section>
-
     
       <section id="contact" className="snap-start">
         <ContactMe />
@@ -56,6 +55,5 @@ export default function Home() {
       </Link>
 
     </div>
-    
   );
 }

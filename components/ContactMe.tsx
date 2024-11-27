@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import React from "react"
-import { MapPinIcon, EnvelopeIcon } from "@heroicons/react/24/solid"
-import { useForm, SubmitHandler } from "react-hook-form"
+import React from "react";
+import { MapPinIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
+import { useForm, SubmitHandler } from "react-hook-form";
 
 type Inputs = {
     name: string;
@@ -10,7 +10,6 @@ type Inputs = {
     subject:string;
     message:string;
   };
-
 
 type Props = {}
 
@@ -35,7 +34,6 @@ function ContactMe({}: Props) {
             </h4>
 
             <div className="space-y-10">
-
                 <div className="flex items-center space-x-5 justify-center">
                     <EnvelopeIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
                     <p className="text-2xl">jacklyn.hndz1998@gmail.com</p>
@@ -48,8 +46,9 @@ function ContactMe({}: Props) {
             </div>
 
             <form 
-            onSubmit={handleSubmit(onSubmit)} 
-            className="flex flex-col space-y-2 w-fit mx-auto">
+                onSubmit={handleSubmit(onSubmit)} 
+                className="flex flex-col space-y-2 w-fit mx-auto"
+            >
                 <div className="flex space-x-2">
                     <input 
                         {...register("name")} 
