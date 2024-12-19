@@ -14,13 +14,6 @@ export const skill = defineType({
       type: 'string',
     }),
     defineField({
-      name: 'progress',
-      title: 'Progress',
-      type: 'number',
-      description: 'Progress of skill from 0 to 100%',
-      validation: (Rule) => Rule.min(0).max(100),
-    }),
-    defineField({
       name: 'image',
       title: 'Image',
       type: 'image',
