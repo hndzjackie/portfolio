@@ -8,7 +8,7 @@ type Props = {}
 
 function Skills({}: Props) {
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}

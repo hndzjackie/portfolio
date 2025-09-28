@@ -30,7 +30,7 @@ function ContactMe({}: Props) {
         <div className="flex flex-col space-y-10">
             <h4 className="text-4xl font-semibold text-center">
               Get in touch or just say hello.{" "}
-              <span className="decoration-[#F7AB0A] underline">Let's Talk.</span>  
+              <span className="decoration-[#F7AB0A] underline">Let's Talk.</span>
             </h4>
 
             <div className="space-y-10">
@@ -45,39 +45,39 @@ function ContactMe({}: Props) {
                 </div>
             </div>
 
-            <form 
-                onSubmit={handleSubmit(onSubmit)} 
+            <form
+                onSubmit={handleSubmit(onSubmit)}
                 className="flex flex-col space-y-2 w-fit mx-auto"
             >
                 <div className="flex space-x-2">
-                    <input 
-                        {...register("name")} 
-                        placeholder="Name" 
-                        className="contactInput" 
-                        type="text" 
+                    <input
+                        {...register("name")}
+                        placeholder="Name"
+                        className="contactInput"
+                        type="text"
                     />
-                    <input 
-                        {...register("email")} 
-                        placeholder="Email" 
-                        className="contactInput" 
-                        type="email" 
+                    <input
+                        {...register("email")}
+                        placeholder="Email"
+                        className="contactInput"
+                        type="email"
                     />
                 </div>
 
-                <input 
-                    {...register("subject")} 
-                    placeholder="Subject" 
-                    className="contactInput" 
-                    type="text" 
+                <input
+                    {...register("subject")}
+                    placeholder="Subject"
+                    className="contactInput"
+                    type="text"
                 />
 
-                <textarea 
-                    {...register("message")} 
-                    placeholder="Message" 
-                    className="contactInput" 
+                <textarea
+                    {...register("message")}
+                    placeholder="Message"
+                    className="contactInput"
                 />
-                <button 
-                    type="submit" 
+                <button
+                    type="submit"
                     className="bg-[#F7AB0A] py-5 px-10 rounded-md text-[#123568] font-bold text-lg">
                     Submit
                 </button>

@@ -7,7 +7,7 @@ import Skills from "../../components/Skills";
 import Projects from "../../components/Projects";
 import ContactMe from "../../components/ContactMe";
 import Link from "next/link";
- 
+
 export const metadata: Metadata = {
   title: 'Jacklyn\'s Portfolio',
 }
@@ -20,11 +20,11 @@ export default function Home() {
       <Header />
 
       <section id="hero" className="snap-start">
-        <Hero /> 
+        <Hero />
       </section>
 
       <section id="about" className="snap-center">
-        <About />  
+        <About />
       </section>
 
       <section id="experience" className="snap-center">
@@ -38,19 +38,19 @@ export default function Home() {
       <section id="projects" className="snap-start">
         <Projects />
       </section>
-    
+
       <section id="contact" className="snap-start">
         <ContactMe />
       </section>
-      
+
       <Link href="#hero">
         <footer className="sticky bottom-5 w-full cursor-pointer">
           <div className="flex items-center justify-center">
-            <img src="./avatars/logo.png" 
-            className="h-10 w-10 rounded-full filter grayscale hover:grayscale-0 
+            <img src="./avatars/logo.png"
+            className="h-10 w-10 rounded-full filter grayscale hover:grayscale-0
             border border-[#123568] cursor-pointer"
             />
-          </div> 
+          </div>
         </footer>
       </Link>
 

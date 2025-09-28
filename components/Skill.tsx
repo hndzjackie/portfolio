@@ -10,7 +10,7 @@ type Props = {
 function Skill({ directionLeft }: Props) {
   return (
     <div className="group relative flex cursor-pointer">
-        <motion.img 
+        <motion.img
             initial={{
                 x: directionLeft ? -200 : 200,
                 opacity: 0,
