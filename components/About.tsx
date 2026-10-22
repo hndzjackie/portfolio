@@ -2,10 +2,14 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { PageInfo } from "../typings";
+import { urlFor } from "@/sanity/lib/image";
 
-type Props = {}
+type Props = {
+    pageInfo: PageInfo;
+}
 
-export default function About({}: Props) {
+export default function About({ pageInfo }: Props) {
   return (
     <motion.div
         initial={{ opacity: 0 }}
@@ -27,7 +31,7 @@ export default function About({}: Props) {
         }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
-        src="/avatars/selfPortraitPicture.jpg"
+        src={urlFor(pageInfo?.profilePic).url()}
         className="-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-96 xl:w-[500px] xl:h-[600px]"
          />
 
@@ -38,7 +42,7 @@ export default function About({}: Props) {
                 background
             </h4>
             <p className="text-base">
-            "As an artist with a keen interest in technology, I merge creativity and innovation for seamless user experiences—a fusion of pixels and passion, where design and technology harmoniously come together.As an artist with a keen interest in technology, I merge creativity and innovation for seamless user experiences—a fusion of pixels and passion, where design and technology harmoniously come together.As an artist with a keen interest in technology, I merge creativity and innovation for seamless user experiences—a fusion of pixels and passion, where design and technology harmoniously come together.As an artist with a keen interest in technology, I merge creativity and innovation for seamless user experiences—a fusion of pixels and passion, where design and technology harmoniously come together.As an artist with a keen interest in technology, I merge creativity and innovation for seamless user experiences—a fusion of pixels and passion, where design and technology harmoniously come together."
+                {pageInfo?.backgroundInformation}
             </p>
          </div>
     </motion.div>
