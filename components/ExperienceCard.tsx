@@ -22,29 +22,30 @@ export default function ExperienceCard({ experience }: Props) {
             viewport={{ once: true }}
             className="w-32 h-32 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"
             src={urlFor(experience?.companyImage).url()}
-            alt=""
+            alt={experience?.company || "Company Image"}
         />
 
         <div className="px-0 md:px-10">
-            <h4 className="text-4xl font-light">Chase Bank</h4>
-            <p className="font-bold text-2xl mt-1">Rewards Home Page Redesign</p>
+            <h4 className="text-4xl font-light">{experience?.company || "Company"}</h4>
+            <p className="font-bold text-2xl mt-1">{experience?.jobTitle || "Role"}</p>
             <div className="flex space-x-2 my-2">
-                {experience.technologies.map((technology) => (
+                {experience?.technologies?.map((technology) => (
                     <img
                         key={technology._id}
                         className="h-10 w-10 rounded-full"
                         src={urlFor(technology.image).url()}
-                        alt="" />
+                        alt={technology.title || ""} />
                 ))}
 
             </div>
-            <p className="uppercase py-5 text-[rgb(18,53,104)]">{new Date(experience.dateStarted).toDateString()} - {" "}
-                {experience.isCurrentlyWorkingHere ? "Present" : new Date(experience.dateEnded).toDateString()}
+            <p className="uppercase py-5 text-[rgb(18,53,104)]">
+                {experience?.dateStarted ? new Date(experience.dateStarted).toDateString() : ""} - {" "}
+                {experience?.isCurrentlyWorkingHere ? "Present" : (experience?.dateEnded ? new Date(experience.dateEnded).toDateString() : "")}
             </p>
 
             <ul className="list-disc space-y-4 ml-5 text-lg h-96 overflow-y-scroll scrollbar-thin scrollbar-track-white
              scrollbar-thumb-[#2251b2]">
-                {experience.points.map((point, i) => (
+                {experience?.points?.map((point, i) => (
                     <li key={i}>{point}</li>
                 ))}
             </ul>

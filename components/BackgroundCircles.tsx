@@ -3,9 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-type Props = {}
-
-function BackgroundCircles({}: Props) {
+function BackgroundCircles() {
   return (
     <motion.div initial={{
         opacity: 0,

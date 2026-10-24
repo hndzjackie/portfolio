@@ -2,7 +2,6 @@
 
 import React from "react";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
-import BackgroundCircles from "./BackgroundCircles";
 import Link from "next/link";
 import { PageInfo } from "../typings";
 import { urlFor } from "@/sanity/lib/image"
@@ -12,7 +11,7 @@ type Props = {
 }
 
 export default function Hero({ pageInfo }: Props) {
-    const [text, count] = useTypewriter({
+    const [text] = useTypewriter({
         words: [
             `Hi! My name is ${pageInfo?.name}.`,
             "I'm a UX Designer with a passion for minimalist design.",
