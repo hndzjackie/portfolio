@@ -14,12 +14,12 @@ export default function Header({ socials }: Props) {
     <header className="sticky top-0 p-5 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center">
         <motion.div
             initial={{
-                x: -500,
+                x: -100,
                 opacity: 0,
-                scale: 0.5,
+                scale: 0.8,
             }}
             transition={{
-                duration: 1.5,
+                duration: 1.2,
             }}
             animate={{
                 x: 0,
@@ -40,9 +40,9 @@ export default function Header({ socials }: Props) {
 
         <motion.div
             initial={{
-                x: 500,
+                x: 100,
                 opacity: 0,
-                scale: 0.5,
+                scale: 0.8,
             }}
             animate={{
                 x: 0,
@@ -50,7 +50,7 @@ export default function Header({ socials }: Props) {
                 scale: 1,
             }}
             transition={{
-                duration: 1.5
+                duration: 1.2
             }}
             className="flex flex-row items-center text-blue-400 cursor-pointer">
                 <SocialIcon

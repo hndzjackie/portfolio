@@ -27,31 +27,31 @@ export default async function Home() {
   const socials = await fetchSocials();
 
   return (
-    <div className="bg-[#ffffff] text-[#123568] h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 
+    <div className="bg-[#ffffff] text-[#123568] min-h-screen overflow-x-hidden z-0 
     scrollbar scrollbar-track-white scrollbar-thumb-[#2251b2]">
       <Header socials={socials || []} />
 
-      <section id="hero" className="snap-start">
+      <section id="hero">
         <Hero pageInfo={pageInfo!} />
       </section>
 
-      <section id="about" className="snap-center">
+      <section id="about">
         <About pageInfo={pageInfo!} />
       </section>
 
-      <section id="experience" className="snap-center">
+      <section id="experience">
         <WorkExperience experiences={experiences || []} />
       </section>
 
-      <section id="skills" className="snap-start">
+      <section id="skills">
         <Skills skills={skills || []} />
       </section>
 
-      <section id="projects" className="snap-start">
+      <section id="projects">
         <Projects projects={projects || []} />
       </section>
 
-      <section id="contact" className="snap-start">
+      <section id="contact">
         <ContactMe />
       </section>
 

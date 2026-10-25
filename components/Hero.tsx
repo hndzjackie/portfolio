@@ -21,34 +21,33 @@ export default function Hero({ pageInfo }: Props) {
     });
 
     return (
-
-    <div className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden">
+    <div className="min-h-screen flex flex-col space-y-6 sm:space-y-8 items-center justify-center text-center overflow-hidden py-20 md:py-0">
         {/* <BackgroundCircles /> */}
         <img
-            className="relative rounded-full h-72 w-72 mx-auto object-cover"
+            className="relative rounded-full h-56 w-56 sm:h-72 sm:w-72 mx-auto object-cover"
             src={urlFor(pageInfo?.heroImage).url()}
             alt="SelfPortrait.jpg"
         />
         <div className="z-20">
-            <h2 className="text-sm uppercase text-[rgb(101,137,192)] pb-2 tracking-[15px]">
+            <h2 className="text-xs sm:text-sm uppercase text-[rgb(101,137,192)] pb-2 tracking-[8px] sm:tracking-[15px]">
                 {pageInfo?.role}
             </h2>
-            <h1 className="text-5xl lg:text-6xl font-semibold px-10">
+            <h1 className="text-2xl sm:text-4xl lg:text-6xl font-semibold px-4 sm:px-10 min-h-[64px] sm:min-h-[80px]">
                 <span className="mr-3">{text}</span>
                 <Cursor cursorColor="#f7AB0A" />
             </h1>
 
-            <div className="pt-5">
-                <Link href="#about" className="px-2">
+            <div className="flex flex-wrap justify-center gap-2 pt-4 sm:pt-5 max-w-xs sm:max-w-none mx-auto">
+                <Link href="#about">
                     <button className="heroButton">About</button>
                 </Link>
-                <Link href="#experience" className="px-2">
+                <Link href="#experience">
                     <button className="heroButton">Experience</button>
                 </Link>
-                <Link href="#skills" className="px-2">
+                <Link href="#skills">
                     <button className="heroButton">Skills</button>
                 </Link>
-                <Link href="#projects" className="px-2">
+                <Link href="#projects">
                     <button className="heroButton">Projects</button>
                 </Link>
             </div>
