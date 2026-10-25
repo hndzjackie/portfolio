@@ -3,8 +3,9 @@
 import React from "react";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import Link from "next/link";
+import Image from "next/image";
 import { PageInfo } from "../typings";
-import { urlFor } from "@/sanity/lib/image"
+import { urlFor } from "@/sanity/lib/image";
 
 type Props = {
     pageInfo: PageInfo;
@@ -13,20 +14,25 @@ type Props = {
 export default function Hero({ pageInfo }: Props) {
     const [text] = useTypewriter({
         words: [
-            `Hi! My name is ${pageInfo?.name}.`,
+            `Hi! My name is ${pageInfo?.name || "Jacklyn"}.`,
             "I'm a UX Designer with a passion for minimalist design.",
         ],
         loop: true,
         delaySpeed: 2000,
     });
 
+    const heroImageUrl = urlFor(pageInfo?.heroImage).url() || "/avatars/selfPortrait.jpg";
+
     return (
     <div className="min-h-screen flex flex-col space-y-6 sm:space-y-8 items-center justify-center text-center overflow-hidden py-20 md:py-0">
         {/* <BackgroundCircles /> */}
-        <img
+        <Image
             className="relative rounded-full h-56 w-56 sm:h-72 sm:w-72 mx-auto object-cover"
-            src={urlFor(pageInfo?.heroImage).url()}
-            alt="SelfPortrait.jpg"
+            src={heroImageUrl}
+            alt={pageInfo?.name || "Self Portrait"}
+            width={288}
+            height={288}
+            priority
         />
         <div className="z-20">
             <h2 className="text-xs sm:text-sm uppercase text-[rgb(101,137,192)] pb-2 tracking-[8px] sm:tracking-[15px]">

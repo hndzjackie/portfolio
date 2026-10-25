@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Experience } from "../typings";
 import { urlFor } from "@/sanity/lib/image";
 
@@ -8,11 +9,13 @@ type Props = {
 }
 
 export default function ExperienceCard({ experience }: Props) {
+  const companyImg = urlFor(experience?.companyImage).url() || "/avatars/logo.png";
+
   return (
     <article className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0
     w-[88vw] max-w-[500px] md:max-w-[600px] xl:max-w-[900px] snap-center bg-[#F6F8FD] p-6 sm:p-10 hover:opacity-100
     opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden">
-        <motion.img
+        <motion.div
             initial={{
                 y: -100,
                 opacity: 0,
@@ -20,22 +23,34 @@ export default function ExperienceCard({ experience }: Props) {
             transition={{ duration: 1.2 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="w-24 h-24 sm:w-32 sm:h-32 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"
-            src={urlFor(experience?.companyImage).url()}
-            alt={experience?.company || "Company Image"}
-        />
+            className="w-24 h-24 sm:w-32 sm:h-32 rounded-full xl:w-[200px] xl:h-[200px] overflow-hidden flex-shrink-0 relative"
+        >
+            <Image
+                src={companyImg}
+                alt={experience?.company || "Company Image"}
+                width={200}
+                height={200}
+                className="w-full h-full object-cover object-center"
+            />
+        </motion.div>
 
         <div className="w-full px-0 sm:px-4 md:px-10">
             <h4 className="text-2xl sm:text-4xl font-light">{experience?.company || "Company"}</h4>
             <p className="font-bold text-xl sm:text-2xl mt-1">{experience?.jobTitle || "Role"}</p>
             <div className="flex space-x-2 my-2 overflow-x-auto py-1">
-                {experience?.technologies?.map((technology) => (
-                    <img
-                        key={technology._id}
-                        className="h-10 w-10 rounded-full flex-shrink-0"
-                        src={urlFor(technology.image).url()}
-                        alt={technology.title || ""} />
-                ))}
+                {experience?.technologies?.map((technology) => {
+                    const techImg = urlFor(technology?.image).url() || "/avatars/logo.png";
+                    return (
+                        <Image
+                            key={technology._id}
+                            className="h-10 w-10 rounded-full flex-shrink-0 object-cover"
+                            src={techImg}
+                            alt={technology.title || "Technology"}
+                            width={40}
+                            height={40}
+                        />
+                    );
+                })}
 
             </div>
             <p className="uppercase py-3 sm:py-5 text-sm sm:text-base text-[rgb(18,53,104)]">
