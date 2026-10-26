@@ -19,17 +19,16 @@ function ContactMe() {
     };
 
   return (
-    <div className="min-h-screen flex relative flex-col text-center md:text-left md:flex-row
-    max-w-7xl px-4 sm:px-10 justify-evenly mx-auto items-center py-24 md:py-0">
-        <h3 className="absolute top-20 sm:top-24 uppercase tracking-[10px] sm:tracking-[20px] text-[#6589c0] text-xl sm:text-2xl">
-            Contact Me
-        </h3>
+    <div className="min-h-screen flex flex-col items-center justify-center py-20 md:py-24 max-w-7xl px-4 sm:px-10 mx-auto">
+      <h3 className="text-center w-full uppercase tracking-[15px] sm:tracking-[20px] text-[#6589c0] text-xl sm:text-2xl mb-8 sm:mb-12 flex-shrink-0">
+        Contact Me
+      </h3>
 
-        <div className="flex flex-col space-y-8 sm:space-y-10 w-full max-w-2xl mt-12 sm:mt-0">
-            <h4 className="text-2xl sm:text-4xl font-semibold text-center px-2">
-              Get in touch or just say hello.{" "}
-              <span className="decoration-[#F7AB0A] underline">Let&apos;s Talk.</span>
-            </h4>
+      <div className="flex flex-col space-y-6 sm:space-y-8 w-full max-w-2xl">
+        <h4 className="text-2xl sm:text-4xl font-semibold text-center px-2">
+          Get in touch or just say hello.{" "}
+          <span className="decoration-[#F7AB0A] underline">Let&apos;s Talk.</span>
+        </h4>
 
             <div className="space-y-6 sm:space-y-10">
                 <div className="flex items-center space-x-3 sm:space-x-5 justify-center">
