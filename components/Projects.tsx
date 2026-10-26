@@ -2,83 +2,143 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { Project } from "../typings";
-import { urlFor } from "@/sanity/lib/image";
+import ProjectCard from "./ProjectCard";
 
 type Props = {
-    projects: Project[];
-}
+  projects: Project[];
+};
+
+const createFallbackImage = (rev: string): Project["image"] => ({
+  _type: "image",
+  asset: {
+    _rev: rev,
+    _type: "reference",
+  },
+});
+
+const fallbackProjects: Project[] = [
+  {
+    _id: "showtime-checkin",
+    _originalId: "showtime-checkin",
+    _createdAt: "",
+    _updatedAt: "",
+    _rev: "",
+    _type: "project",
+    title: "Show-Time Check-In App Project",
+    summary: "Design a pre-order app for Showtime check-ins • 2023",
+    image: createFallbackImage("movieTimeImage"),
+    linkToBuild: "",
+    technologies: [
+      {
+        _id: "tech-figma-1",
+        _originalId: "tech-figma-1",
+        _createdAt: "",
+        _updatedAt: "",
+        _rev: "",
+        _type: "technology",
+        title: "Figma",
+        image: createFallbackImage("figmaImage"),
+      },
+    ],
+  },
+  {
+    _id: "art-auction",
+    _originalId: "art-auction",
+    _createdAt: "",
+    _updatedAt: "",
+    _rev: "",
+    _type: "project",
+    title: "Art Auction Project",
+    summary: "Create an online art gallery auction experience • 2023",
+    image: createFallbackImage("movieTimeImage"),
+    linkToBuild: "",
+    technologies: [
+      {
+        _id: "tech-figma-2",
+        _originalId: "tech-figma-2",
+        _createdAt: "",
+        _updatedAt: "",
+        _rev: "",
+        _type: "technology",
+        title: "Figma",
+        image: createFallbackImage("figmaImage"),
+      },
+    ],
+  },
+  {
+    _id: "figma-art-page",
+    _originalId: "figma-art-page",
+    _createdAt: "",
+    _updatedAt: "",
+    _rev: "",
+    _type: "project",
+    title: "My Figma-Designed Art Page",
+    summary: "Artistic expression captured in pixels • 2024",
+    image: createFallbackImage("JPolaroidArt"),
+    linkToBuild: "",
+    technologies: [
+      {
+        _id: "tech-figma-3",
+        _originalId: "tech-figma-3",
+        _createdAt: "",
+        _updatedAt: "",
+        _rev: "",
+        _type: "technology",
+        title: "Figma",
+        image: createFallbackImage("figmaImage"),
+      },
+    ],
+  },
+  {
+    _id: "chase-bank-redesign",
+    _originalId: "chase-bank-redesign",
+    _createdAt: "",
+    _updatedAt: "",
+    _rev: "",
+    _type: "project",
+    title: "Chase Bank Ultimate Rewards Redesign",
+    summary: "Redesign Chase Ultimate Rewards Home Section on the mobile app • 2024",
+    image: createFallbackImage("chaseImage"),
+    linkToBuild: "",
+    technologies: [
+      {
+        _id: "tech-figma-4",
+        _originalId: "tech-figma-4",
+        _createdAt: "",
+        _updatedAt: "",
+        _rev: "",
+        _type: "technology",
+        title: "Figma",
+        image: createFallbackImage("figmaImage"),
+      },
+    ],
+  },
+];
 
 function Projects({ projects }: Props) {
+  const displayProjects = projects && projects.length > 0 ? projects : fallbackProjects;
+
   return (
     <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-        className="min-h-screen relative flex flex-col justify-center items-center max-w-full mx-auto overflow-hidden z-0 py-20 md:py-24">
-        <h3 className="text-center w-full uppercase tracking-[15px] sm:tracking-[20px] text-[#6589c0] text-xl sm:text-2xl mb-4 sm:mb-8 flex-shrink-0">
-            Projects
-        </h3>
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1.5 }}
+      className="min-h-screen relative flex flex-col justify-center items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24 z-0"
+    >
+      <h3 className="text-center w-full uppercase tracking-[15px] sm:tracking-[20px] text-[#6589c0] text-xl sm:text-2xl mb-8 sm:mb-12 flex-shrink-0">
+        Projects
+      </h3>
 
-        <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x
-        snap-mandatory z-20 scrollbar-thin scrollbar-track-white scrollbar-thumb-[#2251b2] flex-1 items-center">
-            {projects?.map((project, i) => {
-                const projectImg = urlFor(project?.image).url() || "/avatars/movieTimeImage.png";
-                return (
-                <div key={i} className="w-screen flex-shrink-0 snap-center flex flex-col space-y-4 sm:space-y-6
-                items-center justify-center p-4 sm:p-8 md:p-12">
-                    <motion.div
-                        initial={{
-                            y: -100,
-                            opacity: 0,
-                        }}
-                        transition={{ duration: 1.2 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="flex-shrink-0"
-                    >
-                        <Image
-                            src={projectImg}
-                            alt={project?.title || "Project image"}
-                            width={400}
-                            height={260}
-                            className="w-48 sm:w-72 md:w-80 max-h-48 sm:max-h-60 md:max-h-72 object-contain"
-                        />
-                    </motion.div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 w-full z-20">
+        {displayProjects.map((project) => (
+          <ProjectCard key={project._id} project={project} />
+        ))}
+      </div>
 
-                    <div className="space-y-4 sm:space-y-6 px-0 md:px-10 max-w-5xl">
-                        <h4 className="text-xl sm:text-3xl font-semibold text-center px-2">
-                            <span className="underline decoration-[#F7AB0A]">Case Study {i+1} of {projects?.length || 1}:</span>{" "}
-                            {project?.title}
-                        </h4>
-                        <div className="flex items-center space-x-2 justify-center">
-                            {project?.technologies?.map((technology) => {
-                                const techImg = urlFor(technology?.image).url() || "/avatars/logo.png";
-                                return (
-                                <Image
-                                    className="h-8 w-8 sm:h-9 sm:w-9 object-contain"
-                                    key={technology._id}
-                                    src={techImg}
-                                    alt={technology.title || "Technology"}
-                                    width={36}
-                                    height={36}
-                                />
-                                );
-                            })}
-                        </div>
-                        <p className="text-xs sm:text-sm md:text-base text-center md:text-left max-w-2xl mx-auto px-4 leading-relaxed">
-                            {project?.summary}
-                        </p>
-                    </div>
-                </div>
-                );
-            })}
-        </div>
-
-        <div className="w-full absolute top-[30%] bg-[#6388bf]/10 left-0 h-[500px] -skew-y-12" />
+      <div className="w-full absolute top-[30%] bg-[#6388bf]/10 left-0 h-[500px] -skew-y-12 pointer-events-none -z-10" />
     </motion.div>
-  )
+  );
 }
 
-export default Projects
+export default Projects;
