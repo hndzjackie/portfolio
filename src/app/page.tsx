@@ -15,7 +15,7 @@ import { fetchSkills } from "../../utils/fetchSkills";
 import { fetchExperiences } from "../../utils/fetchExperiences";
 
 export const metadata: Metadata = {
-  title: "Jacklyn's Portfolio",
+  title: "Jackie Hernandez | UX Designer & Researcher",
 };
 
 export const revalidate = 100;
@@ -40,16 +40,16 @@ export default async function Home() {
         <About pageInfo={pageInfo!} />
       </section>
 
+      <section id="projects">
+        <Projects projects={projects || []} />
+      </section>
+
       <section id="experience">
         <WorkExperience experiences={experiences || []} />
       </section>
 
       <section id="skills">
         <Skills skills={skills || []} />
-      </section>
-
-      <section id="projects">
-        <Projects projects={projects || []} />
       </section>
 
       <section id="contact">

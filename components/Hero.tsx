@@ -14,14 +14,17 @@ type Props = {
 export default function Hero({ pageInfo }: Props) {
     const [text] = useTypewriter({
         words: [
-            `Hi! My name is ${pageInfo?.name || "Jacklyn"}.`,
-            "I'm a UX Designer with a passion for minimalist design.",
+            `Hi! My name is ${pageInfo?.name || "Jackie"}.`,
+            "I'm a UX Researcher and Designer with a passion for minimalist design.",
         ],
         loop: true,
         delaySpeed: 2000,
     });
 
     const heroImageUrl = urlFor(pageInfo?.heroImage).url() || "/avatars/selfPortrait.jpg";
+    const roleTitle = pageInfo?.role && pageInfo.role.toLowerCase().includes("researcher")
+        ? pageInfo.role
+        : "UX Designer & Researcher";
 
     return (
     <div className="min-h-screen flex flex-col space-y-6 sm:space-y-8 items-center justify-center text-center overflow-hidden py-20 md:py-0">
@@ -36,7 +39,7 @@ export default function Hero({ pageInfo }: Props) {
         />
         <div className="z-20">
             <h2 className="text-xs sm:text-sm uppercase text-[rgb(101,137,192)] pb-2 tracking-[8px] sm:tracking-[15px]">
-                {pageInfo?.role}
+                {roleTitle}
             </h2>
             <h1 className="text-2xl sm:text-4xl lg:text-6xl font-semibold px-4 sm:px-10 min-h-[64px] sm:min-h-[80px]">
                 <span className="mr-3">{text}</span>
@@ -47,14 +50,14 @@ export default function Hero({ pageInfo }: Props) {
                 <Link href="#about">
                     <button className="heroButton">About</button>
                 </Link>
+                <Link href="#projects">
+                    <button className="heroButton">Projects</button>
+                </Link>
                 <Link href="#experience">
                     <button className="heroButton">Experience</button>
                 </Link>
                 <Link href="#skills">
                     <button className="heroButton">Skills</button>
-                </Link>
-                <Link href="#projects">
-                    <button className="heroButton">Projects</button>
                 </Link>
             </div>
         </div>
