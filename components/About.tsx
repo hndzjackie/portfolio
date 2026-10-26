@@ -15,46 +15,48 @@ export default function About({ pageInfo }: Props) {
 
   return (
     <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-        className="flex flex-col relative min-h-screen text-center md:text-left md:flex-row max-w-7xl px-6 sm:px-10 justify-evenly mx-auto items-center py-24 md:py-0">
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1.5 }}
+      className="min-h-screen flex flex-col items-center justify-center py-20 md:py-24 max-w-7xl px-6 sm:px-10 mx-auto"
+    >
+      <h3 className="text-center w-full uppercase tracking-[15px] sm:tracking-[20px] text-[#6589c0] text-xl sm:text-2xl mb-8 md:mb-14 flex-shrink-0">
+        About
+      </h3>
 
-        <h3 className="absolute top-20 sm:top-24 uppercase tracking-[10px] sm:tracking-[20px] text-[#6589c0] text-xl sm:text-2xl">
-            About
-        </h3>
-
+      <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16 w-full flex-1">
         <motion.div
-            initial={{
-                x: -100,
-                opacity: 0,
-            }}
-            transition={{
-                duration: 1.2,
-            }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="mt-12 sm:mt-0 -mb-16 md:mb-0 flex-shrink-0 w-44 h-44 sm:w-56 sm:h-56 rounded-full overflow-hidden md:rounded-lg md:w-64 md:h-96 xl:w-[500px] xl:h-[600px] relative"
+          initial={{
+            x: -100,
+            opacity: 0,
+          }}
+          transition={{
+            duration: 1.2,
+          }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="flex-shrink-0 w-48 h-48 sm:w-60 sm:h-60 md:w-72 md:h-96 xl:w-80 xl:h-[450px] max-h-[55vh] rounded-2xl overflow-hidden relative shadow-lg"
         >
-            <Image
-                src={profilePicUrl}
-                alt={pageInfo?.name || "Profile picture"}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 224px, (max-width: 1280px) 256px, 500px"
-            />
+          <Image
+            src={profilePicUrl}
+            alt={pageInfo?.name || "Profile picture"}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 240px, (max-width: 1280px) 320px, 450px"
+          />
         </motion.div>
 
-         <div className="space-y-6 sm:space-y-10 px-0 md:px-10 mt-20 md:mt-0 max-w-3xl">
-            <h4 className="text-2xl sm:text-4xl font-semibold">
-                Here is a{" "}
-                <span className="underline decoration-[#F7AB0A]/50">little</span>{" "}
-                background
-            </h4>
-            <p className="text-sm sm:text-base">
-                {pageInfo?.backgroundInformation}
-            </p>
-         </div>
+        <div className="text-center md:text-left space-y-6 sm:space-y-8 max-w-2xl px-2 sm:px-4">
+          <h4 className="text-2xl sm:text-4xl font-semibold">
+            Here is a{" "}
+            <span className="underline decoration-[#F7AB0A]/50">little</span>{" "}
+            background
+          </h4>
+          <p className="text-sm sm:text-base leading-relaxed">
+            {pageInfo?.backgroundInformation}
+          </p>
+        </div>
+      </div>
     </motion.div>
   );
 }
