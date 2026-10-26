@@ -32,6 +32,7 @@ yarn-error.log*
 # private local notes / documentation
 *.local.md
 LOCAL_README.md
+RESPONSIVE_LAYOUT_PLAN.md
 
 # vercel
 .vercel
