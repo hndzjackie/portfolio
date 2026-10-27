@@ -12,26 +12,12 @@ type Props = {
 };
 
 export default function ProjectCard({ project }: Props) {
-  let projectImg = "/avatars/movieTimeImage.png";
+  let projectImg = "/avatars/logo.png";
   try {
-    const sanityUrl = urlFor(project?.image).url();
-    if (sanityUrl) {
-      projectImg = sanityUrl;
-    } else if (project?.title?.toLowerCase().includes("chase")) {
-      projectImg = "/avatars/chaseImage.png";
-    } else if (project?.title?.toLowerCase().includes("art")) {
-      projectImg = "/avatars/JPolaroidArt.png";
-    } else {
-      projectImg = "/avatars/movieTimeImage.png";
-    }
+    const imgUrl = urlFor(project?.image).url();
+    if (imgUrl) projectImg = imgUrl;
   } catch {
-    if (project?.title?.toLowerCase().includes("chase")) {
-      projectImg = "/avatars/chaseImage.png";
-    } else if (project?.title?.toLowerCase().includes("art")) {
-      projectImg = "/avatars/JPolaroidArt.png";
-    } else {
-      projectImg = "/avatars/movieTimeImage.png";
-    }
+    projectImg = "/avatars/logo.png";
   }
 
   // Remove "Case Study X of Y:" prefix if present
@@ -63,32 +49,32 @@ export default function ProjectCard({ project }: Props) {
           {cleanTitle}
         </h4>
 
+        {/* Technologies */}
         {project?.technologies && project.technologies.length > 0 && (
           <div className="flex items-center justify-center sm:justify-start space-x-2 my-1">
             {project.technologies.map((technology) => {
               let techImg = "/avatars/figmaImage.png";
               try {
                 const imgUrl = urlFor(technology?.image).url();
-                if (imgUrl) {
-                  techImg = imgUrl;
-                } else if (technology?.title?.toLowerCase().includes("figma")) {
-                  techImg = "/avatars/figmaImage.png";
-                } else {
-                  techImg = "/avatars/logo.png";
-                }
+                if (imgUrl) techImg = imgUrl;
               } catch {
                 techImg = "/avatars/figmaImage.png";
               }
 
               return (
-                <Image
+                <div
                   key={technology._id || technology.title}
-                  src={techImg}
-                  alt={technology.title || "Technology"}
-                  width={32}
-                  height={32}
-                  className="h-7 w-7 sm:h-8 sm:w-8 object-contain"
-                />
+                  className="flex items-center space-x-1"
+                  title={technology.title || "Technology"}
+                >
+                  <Image
+                    src={techImg}
+                    alt={technology.title || "Technology"}
+                    width={32}
+                    height={32}
+                    className="h-7 w-7 sm:h-8 sm:w-8 object-contain"
+                  />
+                </div>
               );
             })}
           </div>

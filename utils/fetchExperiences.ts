@@ -3,7 +3,7 @@ import { client } from "@/sanity/lib/client";
 import { Experience } from "../typings";
 
 const query = groq`
-  *[_type == "experience"] {
+  *[_type == "experience"] | order(dateStarted desc) {
     ...,
     technologies[]->
   }

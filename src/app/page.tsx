@@ -53,7 +53,7 @@ export default async function Home() {
       </section>
 
       <section id="contact">
-        <ContactMe />
+        <ContactMe pageInfo={pageInfo!} />
       </section>
 
       <Link href="#hero">

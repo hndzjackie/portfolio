@@ -13,38 +13,7 @@ type Props = {
 };
 
 export default function Header({ socials }: Props) {
-  const filteredSocials = (socials || []).filter(
-    (social) =>
-      !social.url?.toLowerCase().includes("dribbble") &&
-      !social.url?.toLowerCase().includes("dribble") &&
-      !social.title?.toLowerCase().includes("dribbble") &&
-      !social.title?.toLowerCase().includes("dribble")
-  );
-
-  const fallbackSocials: Social[] = [
-    {
-      _id: "linkedin",
-      _originalId: "linkedin",
-      _createdAt: "",
-      _updatedAt: "",
-      _rev: "",
-      _type: "social",
-      title: "LinkedIn",
-      url: "https://www.linkedin.com/in/jacklyn-hernandez/",
-    },
-    {
-      _id: "github",
-      _originalId: "github",
-      _createdAt: "",
-      _updatedAt: "",
-      _rev: "",
-      _type: "social",
-      title: "GitHub",
-      url: "https://github.com/jacklyn-hndz",
-    },
-  ];
-
-  const displaySocials = filteredSocials.length > 0 ? filteredSocials : fallbackSocials;
+  const displaySocials = socials || [];
 
   return (
     <header className="sticky top-0 p-5 flex items-center justify-between max-w-7xl mx-auto z-20">

@@ -18,3 +18,4 @@ export const fetchProjects = async (): Promise<Project[]> => {
     return [];
   }
 };
+

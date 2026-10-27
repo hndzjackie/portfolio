@@ -6,10 +6,31 @@ import { dataset, projectId } from '../../../env'
 const builder = createImageUrlBuilder({ projectId, dataset })
 
 export const urlFor = (source) => {
-  if (!source) {
+  if (
+    !source ||
+    !source.asset ||
+    (typeof source.asset === 'object' && !source.asset._ref)
+  ) {
     return {
       url: () => '',
     }
   }
-  return builder.image(source)
+
+  try {
+    const img = builder.image(source)
+    return {
+      ...img,
+      url: () => {
+        try {
+          return img.url() || ''
+        } catch {
+          return ''
+        }
+      },
+    }
+  } catch {
+    return {
+      url: () => '',
+    }
+  }
 }
